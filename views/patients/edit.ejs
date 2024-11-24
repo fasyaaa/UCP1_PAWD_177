@@ -1,0 +1,25 @@
+<%- include('../layout') %>
+
+<h2>Edit Patient</h2>
+<form action="/patients/edit/<%= patient.id %>" method="POST">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" name="name" class="form-control" value="<%= patient.name %>" required>
+    </div>
+    <div class="mb-3">
+        <label for="age" class="form-label">Age</label>
+        <input type="number" id="age" name="age" class="form-control" value="<%= patient.age %>" required>
+    </div>
+    <div class="mb-3">
+        <label for="gender" class="form-label">Gender</label>
+        <select id="gender" name="gender" class="form-control">
+            <option value="M" <%= patient.gender === 'M' ? 'selected' : '' %>>Male</option>
+            <option value="F" <%= patient.gender === 'F' ? 'selected' : '' %>>Female</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <textarea id="address" name="address" class="form-control" required><%= patient.address %></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
